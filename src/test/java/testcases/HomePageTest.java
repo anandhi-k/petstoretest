@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -25,9 +25,11 @@ public class HomePageTest {
   public void beforeTest() {
 // 	  System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 // 	  driver = new ChromeDriver();
-	  WebDriverManager.edgedriver().setup();
-		driver = new EdgeDriver();
-	  driver.get("http://localhost:9090");
+//	  WebDriverManager.edgedriver().setup();
+//		driver = new EdgeDriver();
+	  WebDriverManager.firefoxdriver().setup();
+	  driver = new FirefoxDriver();
+	  driver.get("http://localhost:9090/PetStoreWebApp");
 		driver.manage().window().maximize();
 		 driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
   }
@@ -39,7 +41,7 @@ public class HomePageTest {
 	  Assert.assertEquals(pageTitle, "Pet Store");
 	 
   }
-  @Test
+//  @Test
   public void test02_contentTest() {
 	  WebElement typeDropdown = driver.findElement(By.name("Type"));
 	  Select petType = new Select(typeDropdown);

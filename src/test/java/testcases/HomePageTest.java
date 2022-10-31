@@ -20,14 +20,15 @@ import org.testng.annotations.AfterTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class HomePageTest {
-	WebDriver driver;
+//	WebDriver driver;
+	 HtmlUnitDriver driver;
   
   @BeforeTest
   public void beforeTest() {
 
 //	  WebDriverManager.firefoxdriver().setup();
 //	  driver = new FirefoxDriver();
-	  HtmlUnitDriver driver = new HtmlUnitDriver();
+	  driver = new HtmlUnitDriver();
 	  driver.get("http://localhost:9090/PetStoreWebApp");
 	  
 		driver.manage().window().maximize();

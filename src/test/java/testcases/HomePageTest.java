@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -23,13 +24,12 @@ public class HomePageTest {
   
   @BeforeTest
   public void beforeTest() {
-// 	  System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-// 	  driver = new ChromeDriver();
-//	  WebDriverManager.edgedriver().setup();
-//		driver = new EdgeDriver();
-	  WebDriverManager.firefoxdriver().setup();
-	  driver = new FirefoxDriver();
+
+//	  WebDriverManager.firefoxdriver().setup();
+//	  driver = new FirefoxDriver();
+	  HtmlUnitDriver driver = new HtmlUnitDriver();
 	  driver.get("http://localhost:9090/PetStoreWebApp");
+	  
 		driver.manage().window().maximize();
 		 driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
   }
@@ -51,7 +51,7 @@ public class HomePageTest {
 
   @AfterTest
   public void afterTest() {
-	  driver.close();
+//	  driver.close();
   }
 
 }
